@@ -8,8 +8,11 @@ class MyClient(discord.Client):
             print('Logged on {0}'.format(guild.name))
 
     async def on_message(self, message):
-        if message.author == 'Giallar#0623':
-            discord.Message.to_reference(message)
+        #print(message.author.name)
+        #print(message.author.id)
+        if message.author.id == 366921098077667338 and message.content.startswith('++'):
+            channel = message.channel
+            await channel.send(content=message.content)
         print('Message from {0.author} on {0.guild} on {0.channel}: {0.content}'.format(message))
 
 
